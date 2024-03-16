@@ -1,26 +1,39 @@
 const formulario = document.getElementById('form-atividades');
 const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji Celebrando" />';
 const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji Decepcionado" />';
+const atividades = [];
+const notas = [];
+const spanAprovado = '<span class="resultado aprovado">Aprovado</span>';
+const spanReprovado = '<span class="resultado reprovado">Reprovado</span>';
+const notaMinima = parseFloat(prompt("Digite a nota minima: "));
 
 let linhas = '';
 
 formulario.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    adicionaLinha();
+});
+
+function adicionaLinha() {
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
-    let linha = '<tr>';
-    linha += `<td>${inputNomeAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value >= 7 ? imgAprovado : imgReprovado}</td>`;
-    linha += '</tr>';
+    if (atividades.includes(inputNomeAtividade.value)) {
+        alert(`A atividade ${inputNomeAtividade.value} já foi inserida`);
+    } else {
+        atividades.push(inputNomeAtividade.value);
+        notas.push(parseFloat(inputNotaAtividade.value));
 
-    linha += linhas;
+        let linha = '<tr>';
+        linha += `<td>${inputNomeAtividade.value}</td>`;
+        linha += `<td>${inputNotaAtividade.value}</td>`;
+        linha += `<td>${inputNotaAtividade.value >= notaMinima ? imgAprovado : imgReprovado}</td>`;
+        linha += '</tr>';
 
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linha;
+        linha += linhas;
+    }
 
     inputNomeAtividade = '';
     inputNotaAtividade = '';
-});
+}
