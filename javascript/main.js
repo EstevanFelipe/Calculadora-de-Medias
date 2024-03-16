@@ -1,6 +1,6 @@
 const formulario = document.getElementById('form-atividades');
-const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji Celebrando"';
-const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji Decepcionado"';
+const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji Celebrando" />';
+const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji Decepcionado" />';
 
 let linhas = '';
 
