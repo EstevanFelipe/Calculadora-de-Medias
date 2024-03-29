@@ -55,7 +55,7 @@ function atualizarMediaFinal() {
 
     const mediaFinal = calcularMediaFinal();
 
-    document.getElementById('meida-final-valor').innerHTML = mediaFinal;
+    document.getElementById('meida-final-valor').innerHTML = mediaFinal.toFixed(2);
     document.getElementById('media-final-resultado').innerHTML = mediaFinal >= notaMinima ? spanAprovado : spanReprovado;
 }
 
